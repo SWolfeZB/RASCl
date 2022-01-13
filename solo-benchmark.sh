@@ -13,7 +13,7 @@ output="result1.txt"
 kvalue=4
 
 
-for num_executors in {5..25..1}; do
+for num_executors in {5..58..1}; do
 	START_TIME=$(date +%N)
 	START_TIMEFOR=$(date +%T.%N)
 	./../../../../spark-3.1.1-bin-hadoop2.7/bin/spark-submit --class goals.edu.wvu.rascl.driver.CoDRIFt --master local[4] --driver-memory $driver_memory --num-executors $num_executors --executor-memory $executor_memory --executor-cores $executor_cores --conf spark.executor.memoryOverhead=$mem_overhead --queue default ../../../../Users/Seth/IdeaProjects/CoDRIFt/target/$jar_name $num_classes $num_trees gini 4 32 ../../../../research/RASCl/input/palfa_2class_labeled.csv $output $percent_labelled $kvalue
